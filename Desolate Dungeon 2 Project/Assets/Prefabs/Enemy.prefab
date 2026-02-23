@@ -277,7 +277,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   checkDistance: 1
-  lookPosition: {fileID: 2410743109449972956}
+  lookPosition: {fileID: 5879885228289030652}
 --- !u!1 &9063223764956689586
 GameObject:
   m_ObjectHideFlags: 0
