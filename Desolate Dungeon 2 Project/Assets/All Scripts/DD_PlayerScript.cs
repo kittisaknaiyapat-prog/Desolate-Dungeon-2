@@ -108,7 +108,7 @@ public class DD_PlayerScript : MonoBehaviour
             isDashing = true;
             canDash = false;
             trailRenderer.emitting = true;
-            dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+            dashDirection = new Vector2(transform.right.x, 0);
             if (dashDirection == Vector2.zero)
             {
                 dashDirection = new Vector2(transform.localScale.x, 0);
