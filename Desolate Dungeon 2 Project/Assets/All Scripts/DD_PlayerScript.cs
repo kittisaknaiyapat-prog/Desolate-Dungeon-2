@@ -7,6 +7,8 @@ public class DD_PlayerScript : MonoBehaviour
     [SerializeField] Rigidbody2D Rb;
     public InputAction moveAction;
     public Vector2 moveInput;
+
+    InputAction dashAction;
     InputAction jumpaction;
     private TrailRenderer trailRenderer;
     private bool dashInput;
@@ -46,14 +48,16 @@ public class DD_PlayerScript : MonoBehaviour
         jumpaction = InputSystem.actions.FindAction("Jump");
         trailRenderer = GetComponent<TrailRenderer>();
         isFacingRight = true;
-
+        dashAction = InputSystem.actions.FindAction("Dash");
     }
 
     // Update is called once per frame
     void Update()
     {
-        dashInput = Input.GetButtonDown("Dash");
+        //dashInput = Input.GetButtonDown("Dash");
         PlayerInput();
+
+      
 
         if (isGrounded)
         {
@@ -98,7 +102,7 @@ public class DD_PlayerScript : MonoBehaviour
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        if (dashInput && canDash)
+        if (dashAction.WasPerformedThisFrame() && canDash)
         {
 
             isDashing = true;
