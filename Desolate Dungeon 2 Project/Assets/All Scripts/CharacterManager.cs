@@ -42,4 +42,9 @@ public class CharacterManager : MonoBehaviour
         SceneManager.LoadSceneAsync(2);
     }
 
+    public void ExitSettings()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+
 }
