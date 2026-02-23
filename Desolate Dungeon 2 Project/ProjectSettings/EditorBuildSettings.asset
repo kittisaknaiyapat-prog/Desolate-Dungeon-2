@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: f75cb6757e9e0a34eb85195a8353f236
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 161db78df820f4e4b8b87e488ae8025b
+  - enabled: 1
+    path: Assets/Scenes/25%.unity
+    guid: e5e0630418ac27840a5f76dcf8591fd8
+  - enabled: 1
+    path: Assets/Scenes/EnemyScene-Philip.unity
+    guid: 497a59af50f90cb48952d949534d0fc7
+  - enabled: 1
+    path: Assets/Scenes/PlayerScene-Kittisak.unity
+    guid: 6cf96fd97a2f9b141bb494b280753f05
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
