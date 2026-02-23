@@ -24,7 +24,7 @@ public class DD_Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("TestEnemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Die();
         }
