@@ -21,7 +21,7 @@ public class Mimic : MonoBehaviour
 
     [SerializeField] Transform lookPosition;
 
-    
+
 
     void Start()
     {

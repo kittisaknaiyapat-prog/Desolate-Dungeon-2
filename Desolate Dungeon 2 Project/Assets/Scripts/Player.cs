@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
+    
 
     //[SerializeField] Vector2 throwForce;  //
 

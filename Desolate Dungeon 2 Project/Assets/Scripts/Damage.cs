@@ -8,6 +8,8 @@ public class Damage : MonoBehaviour
     public int damage = 2;
     private Health playerHealth;
 
+
+
     void Start()
     {
         
