@@ -23,12 +23,12 @@ public class Enemy : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(lookPosition. position, Vector2.down, checkDistance, groundLayer);
 
-       // if(hit.collider == null)
-        //{
-            // flippa enemyn
+        if(hit.collider == null)
+        { 
+             //flippa enemyn
 
-          //  transform.rotation *= Quaternion.Euler(0f, 180f, 0f);
-        //}
+           transform.rotation *= Quaternion.Euler(0f, 180f, 0f);
+        }
     }
 
 
