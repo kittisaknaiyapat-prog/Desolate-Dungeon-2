@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using NUnit.Framework;
 using System.Collections.Generic;
 
 
@@ -38,7 +36,7 @@ public class CharacterManager : MonoBehaviour
 
     public void PlayGame()
     {
-        PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/Prefabs/selectedskin.prefab");
+        //prefabUtility.SaveAsPrefabAsset(playerskin, "Assets/Prefabs/selectedskin.prefab");
         SceneManager.LoadSceneAsync(2);
     }
 

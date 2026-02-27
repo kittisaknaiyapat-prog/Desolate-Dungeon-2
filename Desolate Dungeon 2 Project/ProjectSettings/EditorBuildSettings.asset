@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Settings.unity
     guid: 161db78df820f4e4b8b87e488ae8025b
   - enabled: 1
-    path: Assets/Scenes/25%.unity
+    path: Assets/Scenes/50%.unity
     guid: e5e0630418ac27840a5f76dcf8591fd8
   - enabled: 1
     path: Assets/Scenes/EnemyScene-Philip.unity
