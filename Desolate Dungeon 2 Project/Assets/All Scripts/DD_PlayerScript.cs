@@ -28,8 +28,10 @@ public class DD_PlayerScript : MonoBehaviour
     [Header("Player Status")]
 
     [SerializeField] int PlayerHealthPoints;
+    private bool isInvincible;
 
 
+    private SpriteRenderer Sprite;
 
     [Header("Dash Related")]
     [SerializeField] private float dashingVelocity;
@@ -49,6 +51,8 @@ public class DD_PlayerScript : MonoBehaviour
         trailRenderer = GetComponent<TrailRenderer>();
         isFacingRight = true;
         dashAction = InputSystem.actions.FindAction("Dash");
+
+        Sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -84,7 +88,7 @@ public class DD_PlayerScript : MonoBehaviour
 
 
     }
-
+    
 
     void PlayerInput()
     {
@@ -138,10 +142,44 @@ public class DD_PlayerScript : MonoBehaviour
             isFacingRight = false;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-
+       
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Rb.linearVelocityY = 0;
+            Rb.AddForce(Vector2.up * jumpForce/2, ForceMode2D.Impulse);
+        }
+    }
+
+    void TakingDmg()
+    {
+        if (isInvincible) return;
+        Invincibility();
+    }
+
+    IEnumerator Invincibility()
+    {
+
+        isInvincible = true;
+        float invincibilityDuration = 2f;
+        float blinkduration = 0.1f;
+
+        Physics2D.IgnoreLayerCollision(7, 12, true);
+        while (invincibilityDuration > 0)
+        {
+
+            Sprite.enabled = !Sprite.enabled;
+            yield return new WaitForSeconds(blinkduration);
+            invincibilityDuration -= blinkduration;
+        }
+        Physics2D.IgnoreLayerCollision(7, 12, false);
+        Sprite.enabled = true;
+        isInvincible = false;
+    }
 
     IEnumerator StopDashing()
     {

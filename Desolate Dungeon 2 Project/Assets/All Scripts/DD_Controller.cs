@@ -6,6 +6,7 @@ public class DD_Controller : MonoBehaviour
     Vector2 StartPosition;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private GameObject deathEffect;
+    DD_PlayerScript playerScript;
 
 
     private void Awake()
@@ -18,7 +19,7 @@ public class DD_Controller : MonoBehaviour
     {
         StartPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
-
+        playerScript = GetComponent<DD_PlayerScript>();
 
     }
 
@@ -28,6 +29,14 @@ public class DD_Controller : MonoBehaviour
         {
             Die();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+      if (collision.gameObject.CompareTag("TestEnemy"))
+      {
+           // playerScript.TakeDmg();
+      }
     }
 
     private void DeathParticles()
