@@ -7,8 +7,8 @@ public class Damage : MonoBehaviour
 
     public int damage = 2;
     private Health playerHealth;
-
-
+    public Player player;
+    
 
     void Start()
     {
@@ -28,10 +28,32 @@ public class Damage : MonoBehaviour
            if (playerHealth == null)
            {
                 playerHealth = collision.gameObject.GetComponent<Health>();
+                
+               
            }
-            
+
             playerHealth.TakeDamage(damage);
+
+
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+
+            player.KBCounter = player.KBTotalTime;
+
+            if (collision.transform.position.x <= transform.position.x)
+            {
+                player.KnockFromRight = true;
+            }
+            if (collision.transform.position.x > transform.position.x)
+            {
+                player.KnockFromRight = false;
+            }
+
+            
+        }
+
 
 
     }

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Player : MonoBehaviour
 {
@@ -12,12 +13,19 @@ public class Player : MonoBehaviour
 
     Rigidbody2D playerRb;
 
+
     InputAction moveAction;
     InputAction jumpAction;
     //InputAction throwAction; //
 
     Vector2 moveInput;
- 
+
+    public float KBForce;       //knockback force
+    public float KBCounter;     // räknar hur länge knockback är kvar på effekten
+    public float KBTotalTime;   // hur länge knockback effekten vara kvar all tillsammans
+
+    public bool KnockFromRight;
+
 
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
@@ -58,7 +66,34 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+
+
         playerRb.linearVelocityX = moveInput.x * moveSpeed;
+
+
+
+        // playerRb.linearVelocityX = moveInput.x * moveSpeed;
+
+
+        if (KBCounter < 0)
+        {
+
+            playerRb.linearVelocityX = moveInput.x * moveSpeed;
+        }
+        else
+        {
+            if (KnockFromRight == true)
+            {
+                playerRb.linearVelocity = new Vector2(-KBForce, KBForce);
+            }
+            if (KnockFromRight == false)
+            {
+                playerRb.linearVelocity = new Vector2(KBForce, KBForce);
+            }
+
+            KBCounter -= Time.deltaTime;
+
+        }
     }
 
     

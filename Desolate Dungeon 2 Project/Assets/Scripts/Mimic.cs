@@ -7,7 +7,8 @@ public class Mimic : MonoBehaviour
 {
     Rigidbody2D enemyRb;
 
-   [SerializeField] Transform playerRb;
+    
+    [SerializeField] Transform playerRb;
 
    [SerializeField] float moveSpeed;
 

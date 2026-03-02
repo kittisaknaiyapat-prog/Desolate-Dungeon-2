@@ -246,6 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61f4ed938ba1d4482d72c15c9fa222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  KBForce: 50
+  KBCounter: 0
+  KBTotalTime: 0
+  KnockFromRight: 0
   moveSpeed: 8
   jumpForce: 10
 --- !u!212 &55077691
@@ -1607,37 +1611,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1985938182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1985938183}
-  m_Layer: 0
-  m_Name: RespawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1985938183
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985938182}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 282.19864, y: 1008.0953, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2034295061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,6 +1773,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2581179200543450357, guid: 4ae12a62e148620448cf9cff72674887, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 36719264}
     - target: {fileID: 5745467493253228707, guid: 4ae12a62e148620448cf9cff72674887, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -2036,12 +2013,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6688878985448430134, guid: 1268067a0d3989f4f838332379f8061d, type: 3}
+      propertyPath: KBForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688878985448430134, guid: 1268067a0d3989f4f838332379f8061d, type: 3}
+      propertyPath: KBCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688878985448430134, guid: 1268067a0d3989f4f838332379f8061d, type: 3}
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6688878985448430134, guid: 1268067a0d3989f4f838332379f8061d, type: 3}
       propertyPath: moveSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688878985448430134, guid: 1268067a0d3989f4f838332379f8061d, type: 3}
+      propertyPath: KBTotalTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688878985448430134, guid: 1268067a0d3989f4f838332379f8061d, type: 3}
+      propertyPath: KnockFromRight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2104,6 +2097,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mimic
       objectReference: {fileID: 0}
+    - target: {fileID: 8985079578070076048, guid: 38f3716a73268be4c8c1ea4984524b3a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 55077690}
+    - target: {fileID: 8985079578070076048, guid: 38f3716a73268be4c8c1ea4984524b3a, type: 3}
+      propertyPath: playerMovement
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2127,4 +2128,3 @@ SceneRoots:
   - {fileID: 688549889}
   - {fileID: 590678761}
   - {fileID: 919374328113500158}
-  - {fileID: 1985938183}

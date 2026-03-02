@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D enemyRb;
 
+    [SerializeField] Transform playerRb;
 
     [SerializeField] float moveSpeed;
     [SerializeField] LayerMask groundLayer;
