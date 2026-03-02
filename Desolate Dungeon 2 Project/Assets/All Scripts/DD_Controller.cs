@@ -35,7 +35,7 @@ public class DD_Controller : MonoBehaviour
     {
       if (collision.gameObject.CompareTag("TestEnemy"))
       {
-           // playerScript.TakeDmg();
+            playerScript.TakingDmg();
       }
     }
 

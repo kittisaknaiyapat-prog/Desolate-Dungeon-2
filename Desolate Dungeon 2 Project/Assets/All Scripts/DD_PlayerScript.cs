@@ -148,14 +148,14 @@ public class DD_PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("TestEnemy"))
         {
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce/2, ForceMode2D.Impulse);
         }
     }
 
-    void TakingDmg()
+    public void TakingDmg()
     {
         if (isInvincible) return;
         Invincibility();
