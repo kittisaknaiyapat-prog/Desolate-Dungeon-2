@@ -19,6 +19,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         OnPlayerSpawned?.Invoke(player);
-    }
+    } 
 
 }

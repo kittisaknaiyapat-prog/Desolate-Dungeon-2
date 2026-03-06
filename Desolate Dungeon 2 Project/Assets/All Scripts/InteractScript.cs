@@ -13,6 +13,7 @@ public class InteractScript : MonoBehaviour
     public string[] dialogue;
     private int index;
 
+    public GameObject contButton;
     public float wordSpeed;
     public bool playerIsClose;
 
@@ -30,6 +31,11 @@ public class InteractScript : MonoBehaviour
                 dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
             }
+        }
+
+        //if (dialougeText.text == dialogue[index])
+        {
+            contButton.SetActive(true); 
         }
     }
 
@@ -50,6 +56,10 @@ public class InteractScript : MonoBehaviour
 
     public void NextLine()
     {
+
+        contButton.SetActive(false);
+
+
         if(index < dialogue.Length - 1)
         {
             index++;
@@ -76,6 +86,7 @@ public class InteractScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsClose = false;
+            zeroText();
         }
     }
 }
