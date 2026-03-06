@@ -34,13 +34,16 @@ public class Mimic : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerRb.position);
 
-        
+       
+
 
         if (distanceToPlayer <= attackRange)
         {
             attack();
             
         }
+
+       
 
         // if (direction == 1) //
         // {

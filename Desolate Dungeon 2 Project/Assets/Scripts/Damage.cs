@@ -37,22 +37,7 @@ public class Damage : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "Player")
-        {
-
-            player.KBCounter = player.KBTotalTime;
-
-            if (collision.transform.position.x <= transform.position.x)
-            {
-                player.KnockFromRight = true;
-            }
-            if (collision.transform.position.x > transform.position.x)
-            {
-                player.KnockFromRight = false;
-            }
-
-            
-        }
+        
 
 
 

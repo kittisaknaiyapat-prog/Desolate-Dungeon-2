@@ -75,27 +75,7 @@ public class Player : MonoBehaviour
         // playerRb.linearVelocityX = moveInput.x * moveSpeed;
 
 
-        if (KBCounter < 0)
-        {
 
-            playerRb.linearVelocityX = moveInput.x * moveSpeed;
-        }
-        else
-        {
-            if (KnockFromRight == true)
-            {
-                playerRb.linearVelocity = new Vector2(-KBForce, KBForce);
-            }
-            if (KnockFromRight == false)
-            {
-                playerRb.linearVelocity = new Vector2(KBForce, KBForce);
-            }
-
-            KBCounter -= Time.deltaTime;
-
-        }
+        
     }
-
-    
-
 }
