@@ -39,7 +39,7 @@ public class DD_PlayerScript : MonoBehaviour
     private Vector2 dashDirection;
     private bool isDashing;
     private bool canDash = true;
-    private bool isFacingRight;
+    [SerializeField] private bool isFacingRight;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -134,13 +134,13 @@ public class DD_PlayerScript : MonoBehaviour
         if (moveInput.x > 0)
         {
             isFacingRight = true;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         if (moveInput.x < 0)
         {
             isFacingRight = false;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
        
 
@@ -168,7 +168,7 @@ public class DD_PlayerScript : MonoBehaviour
         float invincibilityDuration = 2f;
         float blinkduration = 0.1f;
 
-        Physics2D.IgnoreLayerCollision(7, 12, true);
+        Physics2D.IgnoreLayerCollision(8, 0, true);
         while (invincibilityDuration > 0)
         {
 
@@ -176,7 +176,7 @@ public class DD_PlayerScript : MonoBehaviour
             yield return new WaitForSeconds(blinkduration);
             invincibilityDuration -= blinkduration;
         }
-        Physics2D.IgnoreLayerCollision(7, 12, false);
+        Physics2D.IgnoreLayerCollision(8, 0, false);
         Sprite.enabled = true;
         isInvincible = false;
     }
