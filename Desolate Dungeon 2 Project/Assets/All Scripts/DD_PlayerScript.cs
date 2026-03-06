@@ -38,7 +38,7 @@ public class DD_PlayerScript : MonoBehaviour
     [SerializeField] private float dashingTime;
     private Vector2 dashDirection;
     private bool isDashing;
-    private bool canDash = true;
+    [SerializeField]private bool canDash = true;
     [SerializeField] private bool isFacingRight;
 
 
@@ -58,7 +58,8 @@ public class DD_PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerInput();
+
 
         if (isGrounded)
         {
@@ -78,13 +79,22 @@ public class DD_PlayerScript : MonoBehaviour
         {
             isGrounded = false;
         }
-    }
 
-    private void FixedUpdate()
-    {
-        PlayerInput();
-    }
+        if (dashAction.WasPerformedThisFrame() && canDash)
+        {
 
+            isDashing = true;
+            canDash = false;
+            trailRenderer.emitting = true;
+            dashDirection = new Vector2(transform.right.x, 0);
+            if (dashDirection == Vector2.zero)
+            {
+                dashDirection = new Vector2(transform.localScale.x, 0);
+            }
+            StartCoroutine(StopDashing());
+        }
+
+    }
 
     void PlayerInput()
     {
@@ -140,7 +150,7 @@ public class DD_PlayerScript : MonoBehaviour
         }
        
 
-    }
+    } 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
