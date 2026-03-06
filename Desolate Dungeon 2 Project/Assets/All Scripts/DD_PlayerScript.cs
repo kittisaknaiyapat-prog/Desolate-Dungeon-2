@@ -58,10 +58,7 @@ public class DD_PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //dashInput = Input.GetButtonDown("Dash");
-        PlayerInput();
-
-      
+        
 
         if (isGrounded)
         {
@@ -81,14 +78,13 @@ public class DD_PlayerScript : MonoBehaviour
         {
             isGrounded = false;
         }
-
-
-
-
-
-
     }
-    
+
+    private void FixedUpdate()
+    {
+        PlayerInput();
+    }
+
 
     void PlayerInput()
     {
