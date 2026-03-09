@@ -28,7 +28,7 @@ public class DD_Controller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         { 
-           playerScript.TakingDmg();
+          
             if (HealthPoints <= 0)
             {
                 Die();
@@ -71,4 +71,7 @@ public class DD_Controller : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
         rb.simulated = true;
     }
+
+
+    //måste fixa collider med enemy nästa gång, fungererar inte. 
 }
