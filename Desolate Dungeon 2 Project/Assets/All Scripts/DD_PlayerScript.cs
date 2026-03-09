@@ -27,7 +27,7 @@ public class DD_PlayerScript : MonoBehaviour
 
     [Header("Player Status")]
 
-    [SerializeField] int PlayerHealthPoints;
+    
     private bool isInvincible;
 
 
@@ -42,6 +42,10 @@ public class DD_PlayerScript : MonoBehaviour
     [SerializeField] private bool isFacingRight;
 
 
+    [Header("Realated scripts")]
+    DD_Controller controllerScript;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,6 +57,7 @@ public class DD_PlayerScript : MonoBehaviour
         dashAction = InputSystem.actions.FindAction("Dash");
 
         Sprite = GetComponent<SpriteRenderer>();
+        controllerScript = GetComponent<DD_Controller>();
     }
 
     // Update is called once per frame

@@ -1,5 +1,7 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float attackRange;
     public LayerMask whatIsEnemies;
     public int Damage;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
