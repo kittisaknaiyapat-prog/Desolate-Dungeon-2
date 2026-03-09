@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - TestEnemy
+  - EnemyStartingPoint
   layers:
   - Default
   - TransparentFX
