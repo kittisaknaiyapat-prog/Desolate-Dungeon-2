@@ -140,13 +140,13 @@ public class DD_PlayerScript : MonoBehaviour
         if (moveInput.x > 0)
         {
             isFacingRight = true;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         if (moveInput.x < 0)
         {
             isFacingRight = false;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
        
 
