@@ -24,28 +24,17 @@ public class DD_Controller : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+   private void OnCollisionEnter2D(Collision2D collision)
+   {
         if (collision.gameObject.CompareTag("Enemy"))
         { 
-          
-            if (HealthPoints <= 0)
-            {
-                Die();
-            }
+          playerScript.TakingDmg();
+          Die();
 
         }
-    }
+   }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-      if (collision.gameObject.CompareTag("TestEnemy"))
-      {
-            playerScript.TakingDmg();
-            
-
-      }
-    }
+ 
 
     private void DeathParticles()
     {
