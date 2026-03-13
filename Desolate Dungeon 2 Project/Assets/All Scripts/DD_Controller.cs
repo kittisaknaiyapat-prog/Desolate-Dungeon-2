@@ -9,10 +9,6 @@ public class DD_Controller : MonoBehaviour
     DD_PlayerScript playerScript;
     public int HealthPoints;
 
-    private void Awake()
-    {
-
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -62,5 +58,5 @@ public class DD_Controller : MonoBehaviour
     }
 
 
-    //måste fixa collider med enemy nästa gång, fungererar inte. 
+   
 }
