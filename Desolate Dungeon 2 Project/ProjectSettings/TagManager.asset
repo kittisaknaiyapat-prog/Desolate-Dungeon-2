@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - TestEnemy
   - EnemyStartingPoint
+  - Pickup
   layers:
   - Default
   - TransparentFX

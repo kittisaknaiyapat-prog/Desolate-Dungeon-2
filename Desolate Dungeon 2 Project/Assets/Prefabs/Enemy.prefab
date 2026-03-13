@@ -310,9 +310,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   checkDistance: 1
-  groundCheckPosition: {fileID: 1410277400901689312}
   lookPosition: {fileID: 2410743109449972956}
-  isGrounded: 1
 --- !u!114 &3295790887811212614
 MonoBehaviour:
   m_ObjectHideFlags: 0

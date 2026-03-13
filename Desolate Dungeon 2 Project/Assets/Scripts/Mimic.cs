@@ -26,7 +26,8 @@ public class Mimic : MonoBehaviour
 
     void Start()
     {
-     enemyRb = GetComponent<Rigidbody2D>();   
+     enemyRb = GetComponent<Rigidbody2D>();
+    
     }
 
     void Update()
