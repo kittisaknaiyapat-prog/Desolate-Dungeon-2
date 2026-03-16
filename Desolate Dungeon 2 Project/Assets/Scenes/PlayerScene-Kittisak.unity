@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 607594610692817746, guid: 4ae12a62e148620448cf9cff72674887, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 1ae8b4e1a8b1041439668561aea73353, type: 2}
     - target: {fileID: 2581179200543450357, guid: 4ae12a62e148620448cf9cff72674887, type: 3}
       propertyPath: playerRb
       value: 
@@ -210,7 +214,7 @@ GameObject:
   - component: {fileID: 964933912}
   m_Layer: 8
   m_Name: Testenemy
-  m_TagString: Enemy
+  m_TagString: TestEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
