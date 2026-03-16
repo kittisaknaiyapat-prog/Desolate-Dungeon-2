@@ -51,6 +51,8 @@ public class DD_PlayerScript : MonoBehaviour
 
     [Header("Realated scripts")]
     DD_Controller controllerScript;
+    Enemy EnemyCs;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -65,6 +67,7 @@ public class DD_PlayerScript : MonoBehaviour
 
         Sprite = GetComponent<SpriteRenderer>();
         controllerScript = GetComponent<DD_Controller>();
+        EnemyCs = GetComponent<Enemy>();
     }
 
     // Update is called once per frame
@@ -109,10 +112,7 @@ public class DD_PlayerScript : MonoBehaviour
 
 
     }
-    private void FixedUpdate()
-    {
-        KnockBack();
-    }
+    
 
     void KnockBack()
     {
@@ -194,6 +194,7 @@ public class DD_PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            KnockBack();
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce/2, ForceMode2D.Impulse);
         }

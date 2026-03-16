@@ -98,6 +98,7 @@ public class Enemy : MonoBehaviour
         }
         enemyRb.linearVelocityY = 0;
         enemyRb.AddForce(Vector2.up * KBF, ForceMode2D.Impulse);
+
     }
 
 
