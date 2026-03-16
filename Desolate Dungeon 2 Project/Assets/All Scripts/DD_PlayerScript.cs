@@ -25,6 +25,13 @@ public class DD_PlayerScript : MonoBehaviour
     private float coyoteTime = 0.1f;
     private float coyoteTimeCounter;
 
+    [Header("Knockback related")]
+    public float KnockBackForce;
+    public float KnockBackCounter;
+    public float KnockBackTotalTime;
+
+    public bool KnockFromRight;
+
     [Header("Player Status")]
 
     
@@ -99,6 +106,32 @@ public class DD_PlayerScript : MonoBehaviour
             StartCoroutine(StopDashing());
         }
 
+
+
+    }
+    private void FixedUpdate()
+    {
+        KnockBack();
+    }
+
+    void KnockBack()
+    {
+       if (KnockBackCounter <= 0)
+       {
+           Rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, Rb.linearVelocity.y);
+       }
+       else
+       {
+            if (KnockFromRight == true)
+            {
+                Rb.linearVelocity = new Vector2(-KnockBackForce, KnockBackForce);
+            }
+            if (KnockFromRight == false)
+            {
+                Rb.linearVelocity = new Vector2(KnockBackForce, KnockBackForce);
+            }
+                KnockBackCounter -= Time.deltaTime;
+       }
     }
 
     void PlayerInput()
@@ -159,7 +192,7 @@ public class DD_PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("TestEnemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce/2, ForceMode2D.Impulse);

@@ -23,16 +23,16 @@ public class Damage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+       // if (collision.gameObject.tag == "Player")
         {
-           if (playerHealth == null)
+          // if (playerHealth == null)
            {
-                playerHealth = collision.gameObject.GetComponent<Health>();
+                //playerHealth = collision.gameObject.GetComponent<Health>();
                 
                
            }
 
-            playerHealth.TakeDamage(damage);
+          //  playerHealth.TakeDamage(damage);
 
 
         }
