@@ -27,7 +27,7 @@ public class Mimic : MonoBehaviour
     void Start()
     {
      enemyRb = GetComponent<Rigidbody2D>();
-    
+     playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
