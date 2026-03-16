@@ -1,81 +1,88 @@
-using System.Collections;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.UIElements;
+//using System.Collections;
+//using UnityEngine;
 
 
+//public class InteractScript : MonoBehaviour
+//{
+//    public GameObject dialoguePanel;
+//    public 
+//    public string[] dialogue;
+//    private int index;
 
-
-public class InteractScript : MonoBehaviour
-{
-    public GameObject dialoguePanel;
-    public TextMesh dialogueText;
-    public string[] dialogue;
-    private int index;
-
-    public float wordSpeed;
-    public bool playerIsClose;
+//    public GameObject contButton;
+//    public float wordSpeed;
+//    public bool playerIsClose;
 
  
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
-        {
-            if (dialoguePanel.activeInHierarchy)
-            {
-                zeroText();
-            }
-            else
-            {
-                dialoguePanel.SetActive(true);
-                StartCoroutine(Typing());
-            }
-        }
-    }
+//    void Update()
+//    {
+//        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+//        {
+//            if (dialoguePanel.activeInHierarchy)
+//            {
+//                zeroText();
+//            }
+//            else
+//            {
+//                dialoguePanel.SetActive(true);
+//                StartCoroutine(Typing());
+//            }
+//        }
 
-    public void zeroText()
-    {
-        dialogueText.text = " ";
-        index = 0;
-        dialoguePanel.SetActive(false);
-    }
-     IEnumerator Typing()
-    {
-        foreach (char letter in dialogue[index].ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(wordSpeed);
-        }
-    }
+//        if (dialogueText.text == dialogue[index])
+//        {
+//            contButton.SetActive(true); 
+//        }
+//    }
 
-    public void NextLine()
-    {
-        if(index < dialogue.Length - 1)
-        {
-            index++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
-        }
-        else
-        {
-            zeroText();
-        }
-    }
+//    public void zeroText()
+//    {
+//        dialogueText.text = " ";
+//        index = 0;
+//        dialoguePanel.SetActive(false);
+//    }
+//     IEnumerator Typing()
+//    {
+//        foreach (char letter in dialogue[index].ToCharArray())
+//        {
+//            dialogueText.text += letter;
+//            yield return new WaitForSeconds(wordSpeed);
+//        }
+//    }
+
+//    public void NextLine()
+//    {
+
+//        contButton.SetActive(false);
 
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerIsClose = true;
-        }
-    }
+//        if(index < dialogue.Length - 1)
+//        {
+//            index++;
+//            dialogueText.text = "";
+//            StartCoroutine(Typing());
+//        }
+//        else
+//        {
+//            zeroText();
+//        }
+//    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerIsClose = false;
-        }
-    }
-}
+
+//    private void OnTriggerEnter2D(Collider2D other)
+//    {
+//        if (other.CompareTag("Player"))
+//        {
+//            playerIsClose = true;
+//        }
+//    }
+
+//    private void OnTriggerExit2D(Collider2D other)
+//    {
+//        if (other.CompareTag("Player"))
+//        {
+//            playerIsClose = false;
+//            zeroText();
+//        }
+//    }
+//}

@@ -27,7 +27,7 @@ public class DD_PlayerScript : MonoBehaviour
 
     [Header("Player Status")]
 
-    [SerializeField] int PlayerHealthPoints;
+    
     private bool isInvincible;
 
 
@@ -38,8 +38,12 @@ public class DD_PlayerScript : MonoBehaviour
     [SerializeField] private float dashingTime;
     private Vector2 dashDirection;
     private bool isDashing;
-    private bool canDash = true;
+    [SerializeField]private bool canDash = true;
     [SerializeField] private bool isFacingRight;
+
+
+    [Header("Realated scripts")]
+    DD_Controller controllerScript;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,15 +57,14 @@ public class DD_PlayerScript : MonoBehaviour
         dashAction = InputSystem.actions.FindAction("Dash");
 
         Sprite = GetComponent<SpriteRenderer>();
+        controllerScript = GetComponent<DD_Controller>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //dashInput = Input.GetButtonDown("Dash");
         PlayerInput();
 
-      
 
         if (isGrounded)
         {
@@ -82,13 +85,21 @@ public class DD_PlayerScript : MonoBehaviour
             isGrounded = false;
         }
 
+        if (dashAction.WasPerformedThisFrame() && canDash)
+        {
 
-
-
-
+            isDashing = true;
+            canDash = false;
+            trailRenderer.emitting = true;
+            dashDirection = new Vector2(transform.right.x, 0);
+            if (dashDirection == Vector2.zero)
+            {
+                dashDirection = new Vector2(transform.localScale.x, 0);
+            }
+            StartCoroutine(StopDashing());
+        }
 
     }
-    
 
     void PlayerInput()
     {
@@ -134,17 +145,17 @@ public class DD_PlayerScript : MonoBehaviour
         if (moveInput.x > 0)
         {
             isFacingRight = true;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         if (moveInput.x < 0)
         {
             isFacingRight = false;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
        
 
-    }
+    } 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

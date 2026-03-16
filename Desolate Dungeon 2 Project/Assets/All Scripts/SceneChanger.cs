@@ -17,6 +17,12 @@ public class SceneChanger: MonoBehaviour
 
     public void QuitGame()
     {
+        Application.Quit();
         Debug.Log("Quit game");
+    }
+
+    public void ReplayGame()
+    {
+        SceneManager.LoadSceneAsync(2);         
     }
 }

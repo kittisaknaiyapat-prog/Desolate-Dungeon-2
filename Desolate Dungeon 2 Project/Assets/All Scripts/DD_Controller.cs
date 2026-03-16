@@ -7,12 +7,8 @@ public class DD_Controller : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private GameObject deathEffect;
     DD_PlayerScript playerScript;
+    public int HealthPoints;
 
-
-    private void Awake()
-    {
-
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -20,24 +16,21 @@ public class DD_Controller : MonoBehaviour
         StartPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
         playerScript = GetComponent<DD_PlayerScript>();
+        HealthPoints = 100;
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+   private void OnCollisionEnter2D(Collision2D collision)
+   {
         if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Die();
-        }
-    }
+        { 
+          playerScript.TakingDmg();
+          Die();
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-      if (collision.gameObject.CompareTag("TestEnemy"))
-      {
-            playerScript.TakingDmg();
-      }
-    }
+        }
+   }
+
+ 
 
     private void DeathParticles()
     {
@@ -63,4 +56,7 @@ public class DD_Controller : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
         rb.simulated = true;
     }
+
+
+   
 }
