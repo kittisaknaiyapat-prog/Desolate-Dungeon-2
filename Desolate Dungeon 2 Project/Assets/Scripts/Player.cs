@@ -20,11 +20,6 @@ public class Player : MonoBehaviour
 
     Vector2 moveInput;
 
-    public float KBForce;       //knockback force
-    public float KBCounter;     // räknar hur länge knockback är kvar på effekten
-    public float KBTotalTime;   // hur länge knockback effekten vara kvar all tillsammans
-
-    public bool KnockFromRight;
 
 
     [SerializeField] float moveSpeed;

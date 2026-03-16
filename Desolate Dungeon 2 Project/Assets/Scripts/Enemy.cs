@@ -7,11 +7,7 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D enemyRb;
 
-    public float KBF;
-    public float KBC;
-    public float KBTT;
-
-    public bool KFR;
+ 
 
     [SerializeField] float moveSpeed;
     [SerializeField] LayerMask groundLayer;
@@ -50,7 +46,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate() 
     {
         MoveEnemy();
-        EnemyKnockBack();
+        
 
     }
 
@@ -60,27 +56,7 @@ public class Enemy : MonoBehaviour
         enemyRb.linearVelocityX = transform.right.x * moveSpeed;
     }
 
-    void EnemyKnockBack()
-    {
-        if (KBC <= 0)
-        {
-            enemyRb.linearVelocity = new Vector2(enemyRb.linearVelocity.x * moveSpeed, enemyRb.linearVelocity.y);
-        }
-        else
-        {
-            if (KFR == true)
-            {
-                enemyRb.linearVelocity = new Vector2(KBF, KBF);
-            }
-            if (KFR == false)
-            {
-                enemyRb.linearVelocity = new Vector2(-KBF, KBF);
-            }
-
-            KBC -= Time.fixedDeltaTime;
-        }
-
-    }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -97,7 +73,7 @@ public class Enemy : MonoBehaviour
           }
         }
         enemyRb.linearVelocityY = 0;
-        enemyRb.AddForce(Vector2.up * KBF, ForceMode2D.Impulse);
+        
     }
 
 
