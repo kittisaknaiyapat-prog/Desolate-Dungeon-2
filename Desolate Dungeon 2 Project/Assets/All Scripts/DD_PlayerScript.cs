@@ -74,7 +74,7 @@ public class DD_PlayerScript : MonoBehaviour
     void Update()
     {
         PlayerInput();
-
+        
 
         if (isGrounded)
         {
@@ -194,7 +194,7 @@ public class DD_PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            KnockBack();
+           
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce/2, ForceMode2D.Impulse);
         }
