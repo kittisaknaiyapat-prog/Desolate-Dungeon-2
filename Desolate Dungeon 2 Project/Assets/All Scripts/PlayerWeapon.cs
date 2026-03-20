@@ -53,4 +53,5 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
+    //need to add blinking effect to weapon as well, the blinking effekt should only be instantiated when player collides with enemy;
 }

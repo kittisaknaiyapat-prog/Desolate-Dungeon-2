@@ -816,21 +816,29 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 378622975672203362, guid: 09c50ef83a3db0047812d583c51792e2, type: 3}
+    - target: {fileID: 1757558694448867284, guid: 5fe1223bf76789a4391162898120e131, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3277878696879629559, guid: 5fe1223bf76789a4391162898120e131, type: 3}
       propertyPath: jumpForce
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3277878696879629559, guid: 5fe1223bf76789a4391162898120e131, type: 3}
       propertyPath: KnockBackForce
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277878696879629559, guid: 5fe1223bf76789a4391162898120e131, type: 3}
+      propertyPath: KnockFromRight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3277878696879629559, guid: 5fe1223bf76789a4391162898120e131, type: 3}
       propertyPath: KnockBackCounter
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3277878696879629559, guid: 5fe1223bf76789a4391162898120e131, type: 3}
       propertyPath: KnockBackTotalTime
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3564999367536018120, guid: 5fe1223bf76789a4391162898120e131, type: 3}
       propertyPath: m_LocalPosition.x
@@ -871,6 +879,10 @@ PrefabInstance:
     - target: {fileID: 4845902658638520159, guid: 5fe1223bf76789a4391162898120e131, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 16.322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4936454980393410446, guid: 5fe1223bf76789a4391162898120e131, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6010816532909503681, guid: 5fe1223bf76789a4391162898120e131, type: 3}
       propertyPath: m_LocalPosition.x
