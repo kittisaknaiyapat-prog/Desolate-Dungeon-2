@@ -112,7 +112,10 @@ public class DD_PlayerScript : MonoBehaviour
 
 
     }
-    
+    private void FixedUpdate()
+    {
+        KnockBack();
+    }
 
     void KnockBack()
     {
@@ -131,7 +134,8 @@ public class DD_PlayerScript : MonoBehaviour
                 Rb.linearVelocity = new Vector2(KnockBackForce, KnockBackForce);
             }
                 KnockBackCounter -= Time.deltaTime;
-       }
+            StartCoroutine(Invincibility());
+        }
     }
 
     void PlayerInput()
@@ -231,6 +235,7 @@ public class DD_PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         trailRenderer.emitting = false;
         isDashing = false;
+   
 
     }
 }

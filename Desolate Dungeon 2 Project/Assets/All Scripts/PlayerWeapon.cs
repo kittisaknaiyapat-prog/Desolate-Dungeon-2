@@ -12,14 +12,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float attackRange;
     public LayerMask whatIsEnemies;
     public int Damage;
-    
+    DD_PlayerScript playerScript;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         attackAction = InputSystem.actions.FindAction("Attack");
+        playerScript = GetComponent<DD_PlayerScript>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -43,6 +46,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
     } 
+
 
     private void OnDrawGizmosSelected()
     {
