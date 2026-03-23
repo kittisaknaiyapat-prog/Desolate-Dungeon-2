@@ -1568,15 +1568,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20522d84b463b254e9cd37692946bf1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractScript
-  dialoguePanel: {fileID: 930900115}
-  dialogueText: {fileID: 0}
-  dialogue:
-  - "Du \xF6ppnar kistan"
-  - du fick en 67
+  DialoguePanel: {fileID: 930900115}
+  DialogueText: {fileID: 0}
+  Dialogue: []
   contButton: {fileID: 833365879}
   wordSpeed: 0.06
   playerIsClose: 0
---- !u!1 &808061121
+--- !u!1 &607585764
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1584,23 +1582,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 808061122}
-  - component: {fileID: 808061124}
-  - component: {fileID: 808061123}
-  m_Layer: 5
-  m_Name: DialogueText
+  - component: {fileID: 607585765}
+  m_Layer: 0
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &808061122
+--- !u!4 &607585765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607585764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &616853883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 616853884}
+  - component: {fileID: 616853886}
+  - component: {fileID: 616853885}
+  m_Layer: 5
+  m_Name: dialogueText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &616853884
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808061121}
+  m_GameObject: {fileID: 616853883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1610,16 +1639,16 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.1092, y: 5}
-  m_SizeDelta: {x: 651.78, y: 188}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &808061123
+--- !u!114 &616853885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808061121}
+  m_GameObject: {fileID: 616853883}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -1705,13 +1734,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &808061124
+--- !u!222 &616853886
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808061121}
+  m_GameObject: {fileID: 616853883}
   m_CullTransparentMesh: 1
 --- !u!1 &833365879
 GameObject:
@@ -2137,7 +2166,7 @@ RectTransform:
   - {fileID: 555862737}
   - {fileID: 179017485}
   - {fileID: 833365880}
-  - {fileID: 808061122}
+  - {fileID: 616853884}
   m_Father: {fileID: 195276062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -2358,3 +2387,4 @@ SceneRoots:
   - {fileID: 1584281602}
   - {fileID: 195276062}
   - {fileID: 1641020925}
+  - {fileID: 607585765}
