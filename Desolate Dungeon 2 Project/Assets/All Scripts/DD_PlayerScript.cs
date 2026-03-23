@@ -119,22 +119,25 @@ public class DD_PlayerScript : MonoBehaviour
 
     void KnockBack()
     {
-       if (KnockBackCounter <= 0)
-       {
-           Rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, Rb.linearVelocity.y);
-       }
-       else
-       {
-            if (KnockFromRight == true)
+        if (!isDashing)
+        {
+            if (KnockBackCounter <= 0)
             {
-                Rb.linearVelocity = new Vector2(-KnockBackForce, KnockBackForce);
+                Rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, Rb.linearVelocity.y);
             }
-            if (KnockFromRight == false)
+            else
             {
-                Rb.linearVelocity = new Vector2(KnockBackForce, KnockBackForce);
-            }
+                if (KnockFromRight == true)
+                {
+                    Rb.linearVelocity = new Vector2(-KnockBackForce, KnockBackForce);
+                }
+                if (KnockFromRight == false)
+                {
+                    Rb.linearVelocity = new Vector2(KnockBackForce, KnockBackForce);
+                }
                 KnockBackCounter -= Time.deltaTime;
-            StartCoroutine(Invincibility());
+                StartCoroutine(Invincibility());
+            }
         }
     }
 
@@ -227,7 +230,7 @@ public class DD_PlayerScript : MonoBehaviour
 
             
             yield return new WaitForSeconds(blinkduration);
-            invincibilityDuration -= blinkduration;
+            invincibilityDuration -= blinkduration; 
         }
         Physics2D.IgnoreLayerCollision(8, 0, false);
 
