@@ -38,7 +38,7 @@ public class DD_PlayerScript : MonoBehaviour
     private bool isInvincible;
 
 
-    private SpriteRenderer Sprite;
+    [SerializeField] SpriteRenderer[] Sprites;
 
     [Header("Dash Related")]
     [SerializeField] private float dashingVelocity;
@@ -65,7 +65,7 @@ public class DD_PlayerScript : MonoBehaviour
         isFacingRight = true;
         dashAction = InputSystem.actions.FindAction("Dash");
 
-        Sprite = GetComponent<SpriteRenderer>();
+       // Sprite = GetComponent<SpriteRenderer>();
         controllerScript = GetComponent<DD_Controller>();
         EnemyCs = GetComponent<Enemy>();
     }
@@ -214,19 +214,27 @@ public class DD_PlayerScript : MonoBehaviour
     {
 
         isInvincible = true;
-        float invincibilityDuration = 2f;
+        float invincibilityDuration = 1f;
         float blinkduration = 0.1f;
 
         Physics2D.IgnoreLayerCollision(8, 0, true);
         while (invincibilityDuration > 0)
         {
+            foreach (SpriteRenderer sprite in Sprites)
+            {
+                sprite.enabled = !sprite.enabled;
+            }
 
-            Sprite.enabled = !Sprite.enabled;
+            
             yield return new WaitForSeconds(blinkduration);
             invincibilityDuration -= blinkduration;
         }
         Physics2D.IgnoreLayerCollision(8, 0, false);
-        Sprite.enabled = true;
+
+        foreach (SpriteRenderer sprite in Sprites)
+        {
+            sprite.enabled = sprite.enabled;
+        }
         isInvincible = false;
     }
 
