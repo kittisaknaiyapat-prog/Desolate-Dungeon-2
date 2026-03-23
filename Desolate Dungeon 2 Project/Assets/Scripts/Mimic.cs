@@ -10,24 +10,23 @@ public class Mimic : MonoBehaviour
     public Transform patrolPointA;
     public Transform patrolPointB;
     private SpriteRenderer spriteRenderer;
+    public float waitTime = 1.5f;
 
     private Vector2 movement;
     private Vector3 currentTarget;
-    private bool playerDetected;
+    private bool playerDetected = false;
+    private float waitCounter = 0f;
+    private bool isWaiting = false;
     
 
     Rigidbody2D enemyRb;
 
 
     
-    [SerializeField] Transform playerRb;
-
+   [SerializeField] Transform playerRb;
    [SerializeField] float moveSpeed;
-
    [SerializeField] float distance;
-
    [SerializeField] float attackRange = 5f;
-
    [SerializeField] LayerMask groundLayer;
    [SerializeField] float checkDistance;
 
@@ -41,10 +40,14 @@ public class Mimic : MonoBehaviour
      playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
      spriteRenderer = GetComponent<SpriteRenderer>();
-       currentTarget = patrolPointB.position;
+     currentTarget = patrolPointB.position;
 
         
+
     }
+
+
+
 
     void Update()
     {
@@ -65,7 +68,7 @@ public class Mimic : MonoBehaviour
 
         if (playerDetected)
         {
-            MoveTowards();
+            MoveTowards(currentTarget);
         }
         else
         {
@@ -105,25 +108,46 @@ public class Mimic : MonoBehaviour
     void Patrol()
     {
 
-        MoveTowards();
-        
-        
+       
+
+        if (isWaiting)
+        {
+            waitCounter -= Time.deltaTime;
+            if (waitCounter <= 0f)
+            {
+                isWaiting = false;
+                currentTarget = currentTarget == patrolPointA.position ? patrolPointB.position: patrolPointA.position;
+
+            }
+            return;
+        }
+        // behöver inte: Vector2.direction = (currentTarget - transform.position.x).normalized;
+
+        MoveTowards(currentTarget);
+
         if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
         {
-           // currentTarget = currentTarget == patrolPointA.position? patrolPointB.position? patrolPointA.position;
+
+            isWaiting = true;
+            waitCounter = waitTime;
+
         }
 
         
     }
 
-    void MoveTowards()
-    {
-       
-      //  Vector2 direction = (target - transform.position.x);
-        //transform.position += moveSpeed * Time.deltaTime * (Vector3)direction; 
 
-        //if(direction.x <0) spriteRenderer.flipX = true;
-        //else if (direction.x > 0) spriteRenderer.flipX = false;
+
+    void MoveTowards(Vector3 target)
+    {
+
+         Vector2 direction = (target - transform.position).normalized;
+        transform.position += moveSpeed * Time.deltaTime * (Vector3)direction; 
+
+        if(direction.x <0) spriteRenderer.flipX = true;
+        else if (direction.x > 0) spriteRenderer.flipX = false;
+
+       
 
     }
 
