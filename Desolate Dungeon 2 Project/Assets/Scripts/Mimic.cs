@@ -1,18 +1,30 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 
 public class Mimic : MonoBehaviour
 {
+
+    public Transform patrolPointA;
+    public Transform patrolPointB;
+    private SpriteRenderer spriteRenderer;
+
+    private Vector2 movement;
+    private Vector3 currentTarget;
+    private bool playerDetected;
+    
+
     Rigidbody2D enemyRb;
+
 
     
     [SerializeField] Transform playerRb;
 
    [SerializeField] float moveSpeed;
 
-   [SerializeField] float direction;
+   [SerializeField] float distance;
 
    [SerializeField] float attackRange = 5f;
 
@@ -21,23 +33,49 @@ public class Mimic : MonoBehaviour
 
 
     [SerializeField] Transform lookPosition;
-
-
+    
 
     void Start()
     {
      enemyRb = GetComponent<Rigidbody2D>();
      playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+     spriteRenderer = GetComponent<SpriteRenderer>();
+       currentTarget = patrolPointB.position;
+
+        
     }
 
     void Update()
     {
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerRb.position);
+        if (distance < attackRange) 
+        {
 
+            playerDetected = true;
+
+             //attack();
+
+        }
+        else if (distance > attackRange + 1f) 
+        {
+            playerDetected = false;
+        }
+
+        if (playerDetected)
+        {
+            MoveTowards();
+        }
+        else
+        {
+            Patrol();
+        }
+            
+  
+    
+      
        
-
-
         if (distanceToPlayer <= attackRange)
         {
             attack();
@@ -55,13 +93,40 @@ public class Mimic : MonoBehaviour
         // transform.localScale = new Vector3(1, 1, 1);
         //  }
 
-        enemyRb.linearVelocity = new Vector2(direction * moveSpeed * Time.deltaTime, enemyRb.linearVelocity.y);
+       // enemyRb.linearVelocity = new Vector2(direction * moveSpeed * Time.deltaTime, enemyRb.linearVelocity.y);
 
         RaycastHit2D hit = Physics2D.Raycast(lookPosition.position, Vector2.down, checkDistance, groundLayer);
 
        
 
     }
+
+
+    void Patrol()
+    {
+
+        MoveTowards();
+        
+        
+        if (Vector2.Distance(transform.position, currentTarget) < 0.1f)
+        {
+           // currentTarget = currentTarget == patrolPointA.position? patrolPointB.position? patrolPointA.position;
+        }
+
+        
+    }
+
+    void MoveTowards()
+    {
+       
+      //  Vector2 direction = (target - transform.position.x);
+        //transform.position += moveSpeed * Time.deltaTime * (Vector3)direction; 
+
+        //if(direction.x <0) spriteRenderer.flipX = true;
+        //else if (direction.x > 0) spriteRenderer.flipX = false;
+
+    }
+
 
     void attack()
     {
@@ -82,12 +147,12 @@ public class Mimic : MonoBehaviour
 
     private void OnCollisionEnter2D (Collision2D other)
     {
-        direction *= -1;
+       // direction *= -1;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        direction *= -1;
+        //direction *= -1;
     }
 
 }
