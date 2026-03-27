@@ -456,9 +456,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c0d16e7a82566498c9156c061c685d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mimic
+  patrolPointA: {fileID: 0}
+  patrolPointB: {fileID: 0}
+  waitTime: 1.5
   playerRb: {fileID: 0}
   moveSpeed: 5
-  direction: 5
+  distance: 1
   attackRange: 5
   groundLayer:
     serializedVersion: 2
