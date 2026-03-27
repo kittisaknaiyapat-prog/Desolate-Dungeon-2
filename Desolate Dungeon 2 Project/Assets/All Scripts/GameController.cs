@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        //player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
     }
 
 
