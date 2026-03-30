@@ -35,7 +35,8 @@ public class CameraFollow : MonoBehaviour
 
     void findTargetPosition()
     {
-        targetPosition = new Vector3(
+        targetPosition = new Vector3
+            (
             targetToFollow.position.x,
             targetToFollow.position.y,
             transform.position.z) + offset;
