@@ -103,8 +103,8 @@ GameObject:
   - component: {fileID: 3396761211664536702}
   - component: {fileID: 300883850739064234}
   - component: {fileID: 1380292707077556761}
-  - component: {fileID: 614422370666317843}
   - component: {fileID: 2617463534918792422}
+  - component: {fileID: 614422370666317843}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Enemy
@@ -273,7 +273,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -285,22 +285,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &614422370666317843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7635310925331442235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef46dcf9e103a64b95b00013486c79f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
-  chase: 0
-  startingPoint: {fileID: 0}
-  playerRb: {fileID: 0}
-  moveSpeed: 10
 --- !u!114 &2617463534918792422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,3 +299,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Damage
   damage: 2
   player: {fileID: 0}
+--- !u!114 &614422370666317843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635310925331442235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef46dcf9e103a64b95b00013486c79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
+  player: {fileID: 0}
+  distance: 7
+  speed: 3

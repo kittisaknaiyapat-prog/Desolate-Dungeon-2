@@ -309,7 +309,7 @@ MonoBehaviour:
   KBC: 0
   KBTT: 0
   KFR: 0
-  moveSpeed: 4
+  moveSpeed: 3
   groundLayer:
     serializedVersion: 2
     m_Bits: 128

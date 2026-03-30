@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -5,78 +6,42 @@ public class FlyingEnemy : MonoBehaviour
 {
 
 
-   
-    public bool chase = false;
-    public Transform startingPoint;
-    private GameObject player;
-
-    [SerializeField] Transform playerRb;
-
-    [SerializeField] float moveSpeed;
-
-
+    public GameObject player;
+    private Transform playerRb;
+    private Vector3 currentPos;
+    public float distance;
+    public float speed;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        playerRb = player.GetComponent<Transform>();
+        currentPos = GetComponent<Transform>().position;
     }
+   
 
-    // Update is called once per frame
     void Update()
     {
-
-        
-
-        if (player = null)
-        return;
-      
-        if (chase == true)
+        if (Vector2.Distance(transform.position, playerRb.position) < distance)
         {
-            Chase();
-            Flip();
-        }
-        
-            //starts in starting position
-            ReturnStartPoint();
-      
-        
-    }
-
-    private void Chase()
-    {
-        
-        transform.position = Vector2.MoveTowards(transform.position, playerRb.position, moveSpeed * Time.deltaTime);
-
-
-        //Detta under om jag vill lägga till mer
-
-        if (Vector2.Distance(transform.position, playerRb.transform.position) <= 10f)
-        {
-            // change speed, shoot, animation
+            transform.position = Vector2.MoveTowards(transform.position, playerRb.position, speed * Time.deltaTime);
         }
         else
         {
-            // reset variable
-        }
-    }
+            if (Vector2.Distance(transform.position, currentPos) <=0)
+            {
 
-    private void Flip()
-    {
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, currentPos, speed * Time.deltaTime);
+                 
+            }
 
-        if (transform.position.x > playerRb.transform.position.x)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
     }
 
-    private void ReturnStartPoint()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, startingPoint.position, moveSpeed* Time.deltaTime);
-    }
+
+
 
 }
