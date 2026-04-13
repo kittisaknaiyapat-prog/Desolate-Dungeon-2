@@ -8,6 +8,7 @@ TagManager:
   - TestEnemy
   - EnemyStartingPoint
   - Pickup
+  - Dagger Destroyer
   layers:
   - Default
   - TransparentFX
