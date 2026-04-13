@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class DD_PlayerScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class DD_PlayerScript : MonoBehaviour
 
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
+    [SerializeField] private Animator animator;
 
     [Header("Ground check system")]
     [SerializeField] bool isGrounded;
@@ -194,7 +196,14 @@ public class DD_PlayerScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
        
-
+        if (Input != 0)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     } 
 
     private void OnCollisionEnter2D(Collision2D collision)
