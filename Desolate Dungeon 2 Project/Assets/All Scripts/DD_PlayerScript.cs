@@ -196,7 +196,7 @@ public class DD_PlayerScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
        
-        if (Input != 0)
+        if (moveInput.x != 0)
         {
             animator.SetBool("isWalking", true);
         }
