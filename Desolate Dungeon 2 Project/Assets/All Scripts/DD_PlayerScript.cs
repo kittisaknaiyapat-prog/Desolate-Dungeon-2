@@ -77,6 +77,9 @@ public class DD_PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        animator.SetBool("isGrounded", isGrounded);
+
         PlayerInput();
         
 
@@ -200,7 +203,7 @@ public class DD_PlayerScript : MonoBehaviour
            
         }
 
-        if (moveAction.WasPerformedThisFrame())
+        if (moveInput.x != 0)
         {
             animator.SetBool("isWalking", true);
         }
@@ -208,6 +211,12 @@ public class DD_PlayerScript : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+
+        if (jumpaction.WasPerformedThisFrame())
+        {
+            animator.SetTrigger("Jump");
+        }   
+       
 
 
     } 
