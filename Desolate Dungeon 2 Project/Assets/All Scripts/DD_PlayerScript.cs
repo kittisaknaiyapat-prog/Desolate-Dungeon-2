@@ -16,13 +16,15 @@ public class DD_PlayerScript : MonoBehaviour
 
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
-    [SerializeField] private Animator animator;
+    public Animator animator;
+
 
     [Header("Ground check system")]
     [SerializeField] bool isGrounded;
     [SerializeField] Transform groundCheckPosition;
     [SerializeField] float groundCheckRadius;
     [SerializeField] LayerMask groundLayer;
+
 
     private float coyoteTime = 0.1f;
     private float coyoteTimeCounter;
@@ -188,15 +190,17 @@ public class DD_PlayerScript : MonoBehaviour
         {
             isFacingRight = true;
             transform.rotation = Quaternion.Euler(0, 0, 0);
+           
         }
         else
         if (moveInput.x < 0)
         {
             isFacingRight = false;
             transform.rotation = Quaternion.Euler(0, 180, 0);
+           
         }
-       
-        if (Input != 0)
+
+        if (moveAction.WasPerformedThisFrame())
         {
             animator.SetBool("isWalking", true);
         }
@@ -204,6 +208,8 @@ public class DD_PlayerScript : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+
+
     } 
 
     private void OnCollisionEnter2D(Collision2D collision)
