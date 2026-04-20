@@ -25,8 +25,9 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpForce;
     
 
-    [SerializeField] GameObject dagger;  
+    [SerializeField] GameObject dagger;
 
+    AudioManager audioManager;
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");    
        throwAction = InputSystem.actions.FindAction("Attack");
-        
+        audioManager = FindAnyObjectByType<AudioManager>();
         isFacingRight = true;
 
     }
@@ -103,6 +104,12 @@ public class Player : MonoBehaviour
         
     }
 
+
+    public void PlayFootStep()
+    {
+        FindAnyObjectByType<AudioManager>().PlaySound(0);
+
+    }
 
    
 
