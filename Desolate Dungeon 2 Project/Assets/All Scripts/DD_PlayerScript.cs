@@ -277,4 +277,7 @@ public class DD_PlayerScript : MonoBehaviour
    
 
     }
+
+    //Måndag: ska göra klart animation, health system, och attack system.
 }
+
