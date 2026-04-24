@@ -217,6 +217,10 @@ public class DD_PlayerScript : MonoBehaviour
             animator.SetTrigger("Jump");
         }   
        
+        if (isDashing)
+        {
+            animator.SetTrigger("isDashing");
+        }
 
 
     } 
