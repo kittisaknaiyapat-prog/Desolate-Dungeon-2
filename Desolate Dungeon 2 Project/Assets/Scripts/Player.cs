@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
 
     public void PlayFootStep()
     {
-        FindAnyObjectByType<AudioManager>().PlaySound(0);
+        FindAnyObjectByType<AudioManager>().playsound(0);
 
     }
 
