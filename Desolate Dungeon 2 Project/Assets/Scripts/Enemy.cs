@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 public class Enemy : MonoBehaviour
@@ -13,6 +14,12 @@ public class Enemy : MonoBehaviour
 
     public bool KFR;
 
+
+    [SerializeField] private float maxHealth = 3f;  //health
+
+    private float currentHealth; // health
+
+
     [SerializeField] float moveSpeed;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float checkDistance;
@@ -25,6 +32,8 @@ public class Enemy : MonoBehaviour
     {
         enemyRb = GetComponent<Rigidbody2D>();
         playerScript = FindAnyObjectByType<DD_PlayerScript>();
+
+        currentHealth = maxHealth; // health
     }
 
     void Update()
