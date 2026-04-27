@@ -15,4 +15,16 @@ public class AudioController : MonoBehaviour
     public AudioClip returnbuttonclick;
 
 
+    private void Start()
+    {
+        musicSource.clip = menumusic;
+        musicSource.Play();
+    }
+
+
+
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
+    }
 }
