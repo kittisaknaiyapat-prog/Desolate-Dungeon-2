@@ -9,8 +9,14 @@ public class DD_Controller : MonoBehaviour
     DD_PlayerScript playerScript;
     public int HealthPoints;
 
+    AudioController audioController;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+ 
+    }
+
     private void Start()
     {
         StartPosition = transform.position;
@@ -36,6 +42,7 @@ public class DD_Controller : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
 
+
     }
 
 
@@ -43,7 +50,7 @@ public class DD_Controller : MonoBehaviour
     {
         StartCoroutine(Respawn(0.5f));
         DeathParticles();
-
+        audioController.PlaySFX(audioController.death);
     }
 
     IEnumerator Respawn(float duration)

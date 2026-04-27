@@ -9,6 +9,7 @@ TagManager:
   - EnemyStartingPoint
   - Pickup
   - Dagger Destroyer
+  - Audio
   layers:
   - Default
   - TransparentFX

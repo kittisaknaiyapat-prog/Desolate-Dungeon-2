@@ -34,6 +34,10 @@ public class Damage : MonoBehaviour
            }
 
 
+
+
+            FindAnyObjectByType<AudioManager>().playsound(3);
+
         }
 
         
