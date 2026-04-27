@@ -58,6 +58,8 @@ public class DD_PlayerScript : MonoBehaviour
     DD_Controller controllerScript;
     Enemy EnemyCs;
 
+    AudioController audioController;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,6 +75,8 @@ public class DD_PlayerScript : MonoBehaviour
        // Sprite = GetComponent<SpriteRenderer>();
         controllerScript = GetComponent<DD_Controller>();
         EnemyCs = GetComponent<Enemy>();
+
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -217,12 +221,12 @@ public class DD_PlayerScript : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
 
-        
-        
-            
-        
 
 
+
+
+
+        audioController.PlaySFX(audioController.walking);
     } 
 
     private void OnCollisionEnter2D(Collision2D collision)
