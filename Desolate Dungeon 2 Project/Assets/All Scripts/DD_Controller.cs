@@ -11,11 +11,7 @@ public class DD_Controller : MonoBehaviour
 
     AudioController audioController;
 
-    private void Awake()
-    {
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
- 
-    }
+    
 
     private void Start()
     {
@@ -23,6 +19,7 @@ public class DD_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerScript = GetComponent<DD_PlayerScript>();
         HealthPoints = 100;
+        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
 
     }
 
