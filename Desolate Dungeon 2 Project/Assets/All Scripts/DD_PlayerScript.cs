@@ -156,6 +156,7 @@ public class DD_PlayerScript : MonoBehaviour
         if (jumpaction.triggered && isGrounded)
         {
             Rb.linearVelocity = new Vector2(Rb.linearVelocity.x, jumpForce);
+            animator.SetTrigger("Jump");
         }
 
 
@@ -164,6 +165,7 @@ public class DD_PlayerScript : MonoBehaviour
             coyoteTimeCounter = 0;
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            animator.SetTrigger("Jump");
         }
         if (dashAction.WasPerformedThisFrame() && canDash)
         {
@@ -177,6 +179,8 @@ public class DD_PlayerScript : MonoBehaviour
                 dashDirection = new Vector2(transform.localScale.x, 0);
             }
             StartCoroutine(StopDashing());
+            animator.SetTrigger("isDashing");
+
         }
 
         if (isDashing)
@@ -213,15 +217,10 @@ public class DD_PlayerScript : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
 
-        if (jumpaction.WasPerformedThisFrame())
-        {
-            animator.SetTrigger("Jump");
-        }   
-       
-        if (isDashing)
-        {
-            animator.SetTrigger("isDashing");
-        }
+        
+        
+            
+        
 
 
     } 
