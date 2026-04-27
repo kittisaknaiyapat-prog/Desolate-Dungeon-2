@@ -34,6 +34,10 @@ public class Damage : MonoBehaviour
            }
 
 
+<<<<<<< Updated upstream
+=======
+            FindAnyObjectByType<AudioManager>().playsound(3);
+>>>>>>> Stashed changes
         }
 
         

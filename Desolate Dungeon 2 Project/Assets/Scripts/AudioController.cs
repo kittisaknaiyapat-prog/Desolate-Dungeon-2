@@ -7,10 +7,12 @@ public class AudioController : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("---------- Audio Clip ----------")]
+    public AudioClip menumusic;
     public AudioClip background;
     public AudioClip death;
-    public AudioClip walltouch;
+    public AudioClip walking;
     public AudioClip buttonclick;
+    public AudioClip returnbuttonclick;
 
 
 }
