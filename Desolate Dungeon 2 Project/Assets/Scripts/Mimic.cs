@@ -36,7 +36,7 @@ public class Mimic : MonoBehaviour
      playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
      spriteRenderer = GetComponent<SpriteRenderer>();
-     currentTarget = patrolPointB.position;
+     //currentTarget = patrolPointB.position;
 
         
 
