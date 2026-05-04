@@ -264,6 +264,12 @@ public class DD_PlayerScript : MonoBehaviour
             yield return new WaitForSeconds(blinkduration);
             invincibilityDuration -= blinkduration; 
         }
+
+        foreach (SpriteRenderer sprite in Sprites)
+        {
+            sprite.enabled = true;
+        }
+
         Physics2D.IgnoreLayerCollision(8, 0, false);
 
         foreach (SpriteRenderer sprite in Sprites)
@@ -271,6 +277,8 @@ public class DD_PlayerScript : MonoBehaviour
             sprite.enabled = sprite.enabled;
         }
         isInvincible = false;
+        
+        
     }
 
     IEnumerator StopDashing()

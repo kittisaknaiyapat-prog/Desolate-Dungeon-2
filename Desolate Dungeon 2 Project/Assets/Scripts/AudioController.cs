@@ -13,12 +13,26 @@ public class AudioController : MonoBehaviour
     public AudioClip walking;
     public AudioClip buttonclick;
     public AudioClip returnbuttonclick;
-
-
+    private static AudioController instance;
+    public static AudioController GetInstance()
+    {
+        return instance;
+    }
     private void Start()
     {
         musicSource.clip = menumusic;
         musicSource.Play();
+        if (instance)
+        {
+            Destroy(gameObject);
+
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        instance = this;
+
     }
 
 
