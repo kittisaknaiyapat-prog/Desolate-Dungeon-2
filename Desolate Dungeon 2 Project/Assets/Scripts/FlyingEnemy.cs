@@ -11,7 +11,7 @@ public class FlyingEnemy : MonoBehaviour
     private Vector3 currentPos;
     public float distance;
     public float speed;
-
+    
     void Start()
     {
         playerRb = player.GetComponent<Transform>();
