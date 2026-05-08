@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!212 &213928837 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6816860355526728878, guid: 4c6531fbd3b70ea4ba211a47067e6f11, type: 3}
-  m_PrefabInstance: {fileID: 9012577076625691922}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &854399299
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,14 +920,6 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 569205993772444324, guid: 4c6531fbd3b70ea4ba211a47067e6f11, type: 3}
-      propertyPath: Sprites.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 569205993772444324, guid: 4c6531fbd3b70ea4ba211a47067e6f11, type: 3}
-      propertyPath: 'Sprites.Array.data[1]'
-      value: 
-      objectReference: {fileID: 213928837}
     - target: {fileID: 1677763705688025101, guid: 4c6531fbd3b70ea4ba211a47067e6f11, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.42
