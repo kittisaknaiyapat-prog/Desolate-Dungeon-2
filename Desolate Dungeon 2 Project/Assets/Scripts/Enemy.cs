@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour //, IDamageable
 {
 
     Rigidbody2D enemyRb;
@@ -14,8 +14,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public bool KFR;
 
+    public int enemyLife;
+    public int maxEnemyLife;
 
-    [SerializeField] private float maxHealth = 3f;  //health
+    //[SerializeField] private float maxHealth = 3f;  //health
 
     private float currentHealth; // health
 
@@ -33,7 +35,10 @@ public class Enemy : MonoBehaviour, IDamageable
         enemyRb = GetComponent<Rigidbody2D>();
         playerScript = FindAnyObjectByType<DD_PlayerScript>();
 
-        currentHealth = maxHealth; // health
+       // currentHealth = maxHealth; // health
+
+        enemyRb = GetComponent<Rigidbody2D>();
+        enemyLife = maxEnemyLife;
     }
 
     void Update()
@@ -111,21 +116,41 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
 
-    public void Damage(float damageAmount)
-    {
-        currentHealth -= damageAmount;
+  //  public void Damage(float damageAmount)
+    //{
+      //  currentHealth -= damageAmount;
 
-        if (currentHealth < 0)
-        {
-            Die();
-        }
-    }
+        //if (currentHealth < 0)
+        //{
+          //  Die();
+        //}
+    //}
 
     private void Die()
     {
         Destroy(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+
+       
+
+
+            if (enemyLife <= 0)
+            {
+                Die();
+
+                enemyLife--;
+
+            }
+       
+    }
 
 }
