@@ -26,23 +26,19 @@ public class Damage : MonoBehaviour
         {
            if (playerHealth == null)
            {
-                playerHealth = collision.gameObject.GetComponent<Health>();
+                playerHealth = collision.gameObject.GetComponent<Health>(); /// ta bort
                 playerHealth.TakeDamage(damage);
                 
 
            }
 
 
-
-
-            FindAnyObjectByType<AudioManager>().playsound(3);
-
         }
 
-        
-
-
-        
+     
     }
+
+
+
 
 }

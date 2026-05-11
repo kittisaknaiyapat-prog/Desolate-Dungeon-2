@@ -131,7 +131,7 @@ public class Enemy : MonoBehaviour //, IDamageable
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) /////////
     {
 
 

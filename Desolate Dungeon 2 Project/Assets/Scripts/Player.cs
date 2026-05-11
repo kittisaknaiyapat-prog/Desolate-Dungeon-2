@@ -50,13 +50,13 @@ public class Player : MonoBehaviour
             playerRb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
 
-         if (throwAction.WasPerformedThisFrame())                
-         {
+      //   if (throwAction.WasPerformedThisFrame())                
+      //   {
             
-            Instantiate(dagger, bulletShootpoints[0].position, Quaternion.identity);
+      //      Instantiate(dagger, bulletShootpoints[0].position, Quaternion.identity);
 
-            Debug.Log("THROW");                 
-         }
+        //    Debug.Log("THROW");                 
+      //   }
 
         if (isFacingRight)
         {
