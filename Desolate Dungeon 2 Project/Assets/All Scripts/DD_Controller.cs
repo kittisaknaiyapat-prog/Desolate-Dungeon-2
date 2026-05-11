@@ -13,7 +13,7 @@ public class DD_Controller : MonoBehaviour
 
     
 
-    private void Start()
+    private void Start()    
     {
         StartPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
