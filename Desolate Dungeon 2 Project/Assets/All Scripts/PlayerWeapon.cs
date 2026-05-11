@@ -27,25 +27,32 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeBtwAttack <= 0)
+        if (attackAction != null)
         {
-            if (attackAction.WasPerformedThisFrame())        
+            if (timeBtwAttack <= 0)
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
+                if (attackAction.WasPerformedThisFrame())
                 {
-                    enemiesToDamage[i].GetComponent<TestEnemy_Script>().TakeDamage(Damage);
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                    for (int i = 0; i < enemiesToDamage.Length; i++)
+                    {
+                        enemiesToDamage[i].GetComponent<TestEnemy_Script>().TakeDamage(Damage);
+                    }
                 }
+
+
+                timeBtwAttack = startTimeBtwAttack;
             }
-
-            timeBtwAttack = startTimeBtwAttack;
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
+            else
+            {
+                timeBtwAttack -= Time.deltaTime;
+            }
         }
 
-    } 
+    }
+        
+       
+         
 
 
     private void OnDrawGizmosSelected()
