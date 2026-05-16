@@ -10,6 +10,7 @@ TagManager:
   - Pickup
   - Dagger Destroyer
   - Audio
+  - WinTemp
   layers:
   - Default
   - TransparentFX
