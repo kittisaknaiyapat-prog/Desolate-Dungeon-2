@@ -1,6 +1,9 @@
 using System.Collections;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
+
 
 public class DD_Controller : MonoBehaviour
 {
@@ -9,11 +12,15 @@ public class DD_Controller : MonoBehaviour
     [SerializeField] private GameObject deathEffect;
     DD_PlayerScript playerScript;
     public int HealthPoints;
+    public int MaxHealthPoints;
+
 
     AudioController audioController;
+    Health health;
 
-    bool isDead = false;
+    bool isDead;
 
+    [SerializeField] Slider healthSlider;
 
 
     private void Start()    
@@ -23,6 +30,10 @@ public class DD_Controller : MonoBehaviour
         playerScript = GetComponent<DD_PlayerScript>();
         HealthPoints = 100;
         audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+        health = FindAnyObjectByType <Health>();
+        HealthPoints = MaxHealthPoints;
+        healthSlider.maxValue = MaxHealthPoints;
+        healthSlider.value = HealthPoints;
 
     }
 
@@ -39,12 +50,14 @@ public class DD_Controller : MonoBehaviour
         {
             playerScript.TakingDmg();
             HealthPoints -= 10;
+            healthSlider.value = HealthPoints;
         }
+
+
 
         if (HealthPoints <= 0)
         {
             Die();
-
         }
     }
 
@@ -57,8 +70,13 @@ public class DD_Controller : MonoBehaviour
 
     }
 
+    public void Reset()
+    {
+        HealthPoints = MaxHealthPoints;
+        healthSlider.value = MaxHealthPoints;
+        
+    }
 
-    
 
 
     void Die()
@@ -66,11 +84,13 @@ public class DD_Controller : MonoBehaviour
         isDead = true;
         StartCoroutine(Respawn(0.5f));
         DeathParticles();
-        audioController.PlaySFX(audioController.death);
+        //audioController.PlaySFX(audioController.death);
     }
 
     IEnumerator Respawn(float duration)
     {
+        Debug.Log("REswpanwwd");
+       
         rb.simulated = false;
         rb.linearVelocity = new Vector2(0, 0);
         transform.localScale = new Vector3(0, 0, 0);
@@ -80,6 +100,8 @@ public class DD_Controller : MonoBehaviour
         rb.simulated = true;
         isDead = false;
         HealthPoints = 100;
+        MaxHealthPoints = 100;
+        Reset();
     }
 
 
