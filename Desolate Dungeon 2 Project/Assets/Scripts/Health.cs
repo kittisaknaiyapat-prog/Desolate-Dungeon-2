@@ -23,7 +23,13 @@ public class Health : MonoBehaviour
     {
         
     }
-
+    public void Reset()
+    {
+        if(health <= 0)
+        {
+           slider.value = slider.maxValue;
+        }
+    }
     public void TakeDamage(int amount)
     {
         health -= amount;
