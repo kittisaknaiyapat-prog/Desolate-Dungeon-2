@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class Enemy : MonoBehaviour //, IDamageable
 {
 
-    Health healthSystem;
+    DD_Controller controllerScript;
     Rigidbody2D enemyRb;
 
     public float KBF;
@@ -36,11 +36,11 @@ public class Enemy : MonoBehaviour //, IDamageable
         enemyRb = GetComponent<Rigidbody2D>();
         playerScript = FindAnyObjectByType<DD_PlayerScript>();
 
-       // currentHealth = maxHealth; // health
+       //currentHealth = maxHealth;  health
 
         enemyRb = GetComponent<Rigidbody2D>();
         enemyLife = maxEnemyLife;
-        healthSystem = FindAnyObjectByType<Health>();
+        controllerScript = FindAnyObjectByType<DD_Controller>();
     }
 
     void Update()
@@ -115,10 +115,7 @@ public class Enemy : MonoBehaviour //, IDamageable
         enemyRb.linearVelocityY = 0;
         enemyRb.AddForce(Vector2.up * KBF, ForceMode2D.Impulse);
 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            healthSystem.TakeDamage(1);
-        }
+       
 
     }
 
