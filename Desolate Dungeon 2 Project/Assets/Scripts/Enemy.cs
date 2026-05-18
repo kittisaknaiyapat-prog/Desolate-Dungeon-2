@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class Enemy : MonoBehaviour //, IDamageable
 {
 
+    Health healthSystem;
     Rigidbody2D enemyRb;
 
     public float KBF;
@@ -39,13 +40,14 @@ public class Enemy : MonoBehaviour //, IDamageable
 
         enemyRb = GetComponent<Rigidbody2D>();
         enemyLife = maxEnemyLife;
+        healthSystem = FindAnyObjectByType<Health>();
     }
 
     void Update()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(lookPosition. position, Vector2.down, checkDistance, groundLayer);
-      
+        RaycastHit2D hit = Physics2D.Raycast(lookPosition.position, Vector2.down, checkDistance, groundLayer);
+
 
         if(hit.collider == null )
         { 
@@ -113,44 +115,14 @@ public class Enemy : MonoBehaviour //, IDamageable
         enemyRb.linearVelocityY = 0;
         enemyRb.AddForce(Vector2.up * KBF, ForceMode2D.Impulse);
 
-    }
-
-
-  //  public void Damage(float damageAmount)
-    //{
-      //  currentHealth -= damageAmount;
-
-        //if (currentHealth < 0)
-        //{
-          //  Die();
-        //}
-    //}
-
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) /////////
-    {
-
-
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            healthSystem.TakeDamage(1);
         }
 
-       
-
-
-            if (enemyLife <= 0)
-            {
-                Die();
-
-                enemyLife--;
-
-            }
-       
     }
+
+
+
 
 }
