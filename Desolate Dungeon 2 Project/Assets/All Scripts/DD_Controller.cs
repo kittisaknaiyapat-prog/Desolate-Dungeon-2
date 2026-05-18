@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DD_Controller : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class DD_Controller : MonoBehaviour
 
     AudioController audioController;
 
-    
+    bool isDead = false;
+
+
 
     private void Start()    
     {
@@ -31,7 +34,19 @@ public class DD_Controller : MonoBehaviour
             Die();
 
         }
-   }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            playerScript.TakingDmg();
+            HealthPoints -= 10;
+        }
+
+        if (HealthPoints <= 0)
+        {
+            Die();
+
+        }
+    }
 
  
 
@@ -43,8 +58,12 @@ public class DD_Controller : MonoBehaviour
     }
 
 
+    
+
+
     void Die()
     {
+        isDead = true;
         StartCoroutine(Respawn(0.5f));
         DeathParticles();
         audioController.PlaySFX(audioController.death);
@@ -59,6 +78,8 @@ public class DD_Controller : MonoBehaviour
         transform.position = StartPosition;
         transform.localScale = new Vector3(1, 1, 1);
         rb.simulated = true;
+        isDead = false;
+        HealthPoints = 100;
     }
 
 
