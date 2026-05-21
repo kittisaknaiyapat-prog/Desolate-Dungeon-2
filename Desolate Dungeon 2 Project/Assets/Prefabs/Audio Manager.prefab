@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 6225578553543894471}
   SFXSource: {fileID: 7194291075174677269}
-  menumusic: {fileID: 0}
+  menumusic: {fileID: 8300000, guid: 5ea8ea7167a00674cbdcfb7096eb1739, type: 3}
   background: {fileID: 0}
   death: {fileID: 8300000, guid: c59e9e30f9b28db4ab1b9d288d0128ce, type: 3}
   walking: {fileID: 8300000, guid: 2ec296d12fa661e4bafee2bf170ecd07, type: 3}
@@ -230,7 +230,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

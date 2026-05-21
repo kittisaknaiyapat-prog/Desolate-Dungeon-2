@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class AudioController : MonoBehaviour
 {
@@ -13,29 +14,58 @@ public class AudioController : MonoBehaviour
     public AudioClip walking;
     public AudioClip buttonclick;
     public AudioClip returnbuttonclick;
-    private static AudioController instance;
-    public static AudioController GetInstance()
+
+    public static AudioController Instance { get; private set; }
+
+    private void Awake()
     {
-        return instance;
-    }
-    private void Start()
-    {
-        musicSource.clip = menumusic;
-        musicSource.Play();
-        if (instance)
+   
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
-
             return;
         }
 
+        Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
 
-        instance = this;
+    private void OnEnable()
+    {
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+ 
+        if (scene.name == "StartScene" || scene.name == "Settings 2 new")
+        {
+            PlayMusic(menumusic);
+        }
+        else
+        {
+
+            PlayMusic(background);
+        }
+    }
+
+   
+    public void PlayMusic(AudioClip clip)
+    {
+
+        if (musicSource.clip == clip) return;
+
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
 
     public void PlaySFX(AudioClip clip)
     {
