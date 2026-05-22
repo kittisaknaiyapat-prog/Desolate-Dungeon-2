@@ -26,6 +26,7 @@ public class Mimic : MonoBehaviour
    [SerializeField] LayerMask groundLayer;
    [SerializeField] float checkDistance;
 
+        DD_PlayerScript playerScript;
 
     [SerializeField] Transform lookPosition;
     
@@ -37,6 +38,7 @@ public class Mimic : MonoBehaviour
 
      spriteRenderer = GetComponent<SpriteRenderer>();
      //currentTarget = patrolPointB.position;
+        playerScript = FindAnyObjectByType<DD_PlayerScript>();
 
         
 
@@ -164,6 +166,12 @@ public class Mimic : MonoBehaviour
 
 
     }
+
+    
+
+
+
+    
 
     private void OnCollisionEnter2D (Collision2D other)
     {

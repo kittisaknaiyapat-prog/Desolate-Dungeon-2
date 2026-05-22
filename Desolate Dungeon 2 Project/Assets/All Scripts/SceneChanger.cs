@@ -36,6 +36,12 @@ public class SceneChanger: MonoBehaviour
         audioController.PlaySFX(audioController.returnbuttonclick);
     }
 
+    public void ExitSettings()
+    {
+        SceneManager.LoadSceneAsync(0);
+        audioController.PlaySFX(audioController.returnbuttonclick);
+    }
+
     public void ReplayGame()
     {
         SceneManager.LoadSceneAsync(2);         

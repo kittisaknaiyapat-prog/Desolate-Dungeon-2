@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 6225578553543894471}
   SFXSource: {fileID: 7194291075174677269}
-  menumusic: {fileID: 8300000, guid: 1c7f33afe15fbdf4f9d75b43cc2b9d9d, type: 3}
+  menumusic: {fileID: 0}
   background: {fileID: 0}
   death: {fileID: 8300000, guid: c59e9e30f9b28db4ab1b9d288d0128ce, type: 3}
   walking: {fileID: 8300000, guid: 2ec296d12fa661e4bafee2bf170ecd07, type: 3}
@@ -95,7 +95,7 @@ AudioSource:
   m_GameObject: {fileID: 3499149326250329094}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4169501485633141737, guid: b624496d3c84526429cdda268d579cc5, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -224,7 +224,7 @@ AudioSource:
   m_GameObject: {fileID: 8431490080704765307}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2245089641682858400, guid: b624496d3c84526429cdda268d579cc5, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

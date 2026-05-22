@@ -7,16 +7,19 @@ using UnityEngine.UI;
 
 public class PlayerHealthScript : MonoBehaviour
 {
+    
     [SerializeField] private int health = 10;
     public int currentHealth {get; private set; }
     public int maxHealth { get; private set; }
     public static Action<int> onPlayerTakeDamage;
-
+    
     void Awake()
     {
      currentHealth = health;
         maxHealth = health; 
     }
+
+   
 
     public void TakeDamage(int damageAmount)
     {
