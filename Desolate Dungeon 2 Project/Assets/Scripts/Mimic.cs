@@ -175,4 +175,8 @@ public class Mimic : MonoBehaviour
         //direction *= -1;
     }
 
+    
+    
+    //Hämta animations,  
+
 }
