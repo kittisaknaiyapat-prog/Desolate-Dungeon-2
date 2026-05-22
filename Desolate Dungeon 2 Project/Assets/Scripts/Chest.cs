@@ -15,6 +15,8 @@ public class Chest : MonoBehaviour
     public Transform player;
 
 
+    
+
     void Start()
     {
         interactAction = InputSystem.actions.FindAction("Interact");
