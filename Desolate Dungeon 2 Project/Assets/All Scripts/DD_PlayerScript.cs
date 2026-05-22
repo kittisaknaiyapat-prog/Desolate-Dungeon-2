@@ -169,7 +169,7 @@ public class DD_PlayerScript : MonoBehaviour
             coyoteTimeCounter = 0;
             Rb.linearVelocityY = 0;
             Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            animator.SetTrigger("Jump");
+            //animator.SetTrigger("Jump");
         }
         if (dashAction.WasPerformedThisFrame() && canDash)
         {
