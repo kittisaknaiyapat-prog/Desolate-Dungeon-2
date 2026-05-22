@@ -89,7 +89,6 @@ public class DD_Controller : MonoBehaviour
 
     IEnumerator Respawn(float duration)
     {
-        Debug.Log("REswpanwwd");
        
         rb.simulated = false;
         rb.linearVelocity = new Vector2(0, 0);
