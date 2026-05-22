@@ -84,11 +84,12 @@ public class DD_Controller : MonoBehaviour
         isDead = true;
         StartCoroutine(Respawn(0.5f));
         DeathParticles();
-        audioController.PlaySFX(audioController.death);
+        //audioController.PlaySFX(audioController.death);
     }
 
     IEnumerator Respawn(float duration)
     {
+        Debug.Log("REswpanwwd");
        
         rb.simulated = false;
         rb.linearVelocity = new Vector2(0, 0);
