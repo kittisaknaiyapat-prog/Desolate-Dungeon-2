@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject dagger;
 
-    AudioManager audioManager;
+    //AudioManager audioManager;
 
     void Start()
     {
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");    
        throwAction = InputSystem.actions.FindAction("Attack");
-        audioManager = FindAnyObjectByType<AudioManager>();
+       // audioManager = FindAnyObjectByType<AudioManager>();
         isFacingRight = true;
 
     }

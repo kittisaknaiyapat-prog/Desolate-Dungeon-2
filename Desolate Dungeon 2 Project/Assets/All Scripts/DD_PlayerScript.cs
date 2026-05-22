@@ -57,8 +57,7 @@ public class DD_PlayerScript : MonoBehaviour
     [Header("Realated scripts")]
     DD_Controller controllerScript;
     Enemy EnemyCs;
-
-    AudioController audioController;
+//AudioController audioController;
 
 
 
@@ -76,7 +75,7 @@ public class DD_PlayerScript : MonoBehaviour
         controllerScript = GetComponent<DD_Controller>();
         EnemyCs = GetComponent<Enemy>();
 
-        audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
+       // audioController = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioController>();
     }
 
     // Update is called once per frame
@@ -226,7 +225,7 @@ public class DD_PlayerScript : MonoBehaviour
 
 
 
-        audioController.PlaySFX(audioController.walking);
+      //  audioController.PlaySFX(audioController.walking);
     } 
 
     private void OnCollisionEnter2D(Collision2D collision)
