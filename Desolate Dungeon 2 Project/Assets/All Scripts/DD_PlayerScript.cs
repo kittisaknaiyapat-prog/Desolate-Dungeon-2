@@ -72,7 +72,7 @@ public class DD_PlayerScript : MonoBehaviour
         isFacingRight = true;
         dashAction = InputSystem.actions.FindAction("Dash");
 
-       // Sprite = GetComponent<SpriteRenderer>();
+        //Sprite = GetComponent<SpriteRenderer>();
         controllerScript = GetComponent<DD_Controller>();
         EnemyCs = GetComponent<Enemy>();
 
