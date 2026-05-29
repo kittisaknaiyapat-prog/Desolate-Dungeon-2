@@ -45,7 +45,7 @@ public class DD_Controller : MonoBehaviour
             Die();
 
         }
-
+            
         if (collision.gameObject.CompareTag("Enemy"))
         {
             playerScript.TakingDmg();
